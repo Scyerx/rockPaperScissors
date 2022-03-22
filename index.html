@@ -1,73 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Rock Paper Scissors</title>
-        <link rel="stylesheet" href="./style.css">
-        <link rel="script" href="./script.js">
-        
-
-    </head>
-
-    <script>
-        const options = ["rock", "paper", "scissors"];
-        let computerScore = 0;
-        let playerScore = 0;
-        
-        function computerPlay () {
-            let number = Math.floor(Math.random() * 3);
-            return (options[number]);
-        }
-
-        function playRound (playerSelection, computerSelection) {
-            
-            if (playerSelection === "rock" && computerSelection === "scissors"){
-                playerScore++;
-                return `You won! Rock beats scissors. Score: ${playerScore} to ${computerScore}`;
-            } else if (playerSelection === "rock" && computerSelection === "paper") {
-                computerScore++;
-                return `You lose! Paper beats rock. Score: ${playerScore} to ${computerScore}`;
-            } else if (playerSelection === "paper" && computerSelection === "rock"){
-                playerScore++;
-                return `You won! Paper beats rock. Score: ${playerScore} to ${computerScore}`;
-            } else if (playerSelection === "paper" && computerSelection === "scissors") {
-                computerScore++;
-                return `You lose! Scissors beats paper. Score: ${playerScore} to ${computerScore}`;
-            } else if (playerSelection === "scissors" && computerSelection === "paper"){
-                playerScore++;
-                return `You won! Scissors beats paper. Score: ${playerScore} to ${computerScore}`;
-            } else if (playerSelection === "scissors" && computerSelection === "rock") {
-                computerScore++;
-                return `You lose! rock beats scissors. Score: ${playerScore} to ${computerScore}`;
-            } else {
-                return `That is a tie! Score: ${playerScore} to ${computerScore}`;
-            }
-
-            
-        }
-
-       
-
-        function game() {
-            for (let i = 0; i < 5; i++) {
-                playerSelection = window.prompt("rock, paper, scissors?");
-                playerSelection = playerSelection.toLowerCase();
-                let computerSelection = computerPlay();
-                console.log(playRound (playerSelection, computerSelection));
-                
-            }
-            
-        }
-           
-    game();
-
-    </script>
-
-    <body>
-        
-        
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class = "header">Rock Paper Scissors</header>
     
+    <game class = "game">
+        <div id = "bigtext"> Choose your weapon to fight the robot:</div>
+        <div id = "smalltext">The one who wins 5 rounds first is the winner.</div>
+        <div id = "buttons">
+            <button id = "rockButton">Rock</button>
+            <button id = "paperButton">Paper</button>
+            <button id = "scissorsButton">Scissors</button>
+        </div>
+        <div id = "score">Player 0 x 0 Computer</div>
+        <div id = "results"></div>
 
-    </body>
 
+    </game>
+
+    <footer class = "footer">Designed by Scyer</footer>
+
+    <script src = "script.js"></script>
+    
+</body>
 </html>
